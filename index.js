@@ -13,8 +13,8 @@ app.addComponent({
     view(model) {
         return `<h2>Number of albums ${model.albums.length}`;
     },
-    controller(model) {
-        const albums = API.getAlbums();
+    async controller(model) {
+        const albums = await API.getAlbums();
         console.log(albums);
     }
 });
