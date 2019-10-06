@@ -15,10 +15,8 @@ app.addComponent({
     },
     async controller(model) {
         const albums = await API.getAlbums();
-        console.log(albums);
+        model.albums = albums;
     }
 });
 
 router.addRoute("albums", "^#/albums$");
-
-app.showComponent("albums");
