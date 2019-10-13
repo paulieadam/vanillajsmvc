@@ -5,6 +5,14 @@ import API from "./lib/API.js";
 const app = new App("#app");
 const router = new Router(app);
 
+const albumTemplate = (album) => `
+    <section>
+        <a href="#/albums/${album.id}">
+            <h3>${album.id}</h3>
+        </a>
+    </section>
+`;
+
 app.addComponent({
     name: "albums",
     model: {
