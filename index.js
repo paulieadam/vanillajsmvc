@@ -19,7 +19,11 @@ app.addComponent({
         albums: []
     },
     view(model) {
-        return `<h2>Number of albums ${model.albums.length}`;
+        return `
+            <ul>
+                ${model.albums.map(album => `<li>${albumTemplate(album)}</li>`).join('')}
+            </ul>
+        `;
     },
     async controller(model) {
         const albums = await API.getAlbums();
