@@ -31,4 +31,19 @@ app.addComponent({
     }
 });
 
+app.addComponent({
+    name: "album",
+    model: {
+        album: {}
+    },
+    view(model) {
+        return albumTemplate(model.album);
+    },
+    async controller(model) {
+        const album = await API.getAlbum(1);
+        model.album = album;
+    }
+});
+
 router.addRoute("albums", "^#/albums$");
+router.addRoute("album", "^#/albums/([0-9]+)$");
