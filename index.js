@@ -40,7 +40,7 @@ app.addComponent({
         return albumTemplate(model.album);
     },
     async controller(model) {
-        const album = await API.getAlbum(1);
+        const album = await API.getAlbum(router.params[1]);
         model.album = album;
     }
 });
